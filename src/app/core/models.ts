@@ -1,0 +1,10 @@
+export interface DashboardSummary{activeEmployees:number;presentToday:number;absentToday:number;employeesOnLeave:number;pendingRequests:number;expiringContracts:number}
+export interface Employee{id:string;employeeCode:string;documentNumber:string;firstName:string;lastName:string;email:string;phone?:string;hireDate:string;status:string;organizationUnitId?:string;positionId?:string;managerEmployeeId?:string}
+export interface OrganizationUnit{id:string;code:string;name:string;type:string;parentId?:string;isActive:boolean}
+export interface Position{id:string;code:string;name:string;organizationUnitId?:string;isActive:boolean}
+export interface AttendanceMark{id:string;employeeId:string;markedAt:string;type:string;origin:string;deviceId?:string}
+export interface LeaveRequest{id:string;employeeId:string;type:string;startDate:string;endDate:string;requestedDays:number;reason?:string;status:string;reviewComment?:string}
+export interface EmploymentContract{id:string;employeeId:string;contractType:string;number:string;startDate:string;endDate?:string;monthlyAmount?:number;status:string}
+export interface CatalogItem{id:string;category:string;code:string;name:string;isActive:boolean}
+export interface AuditLog{id:string;userName:string;action:string;entityName:string;entityId:string;occurredAt:string}
+export interface WorkflowDefinition{id:string;name:string;entityType:string;isActive:boolean}
