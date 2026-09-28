@@ -7,7 +7,45 @@ Frontend Angular para la versión 1 del SaaS de Recursos Humanos transversal a e
 - Standalone Components
 - Angular Router
 - HttpClient
+- JWT
 - CSS responsive sin dependencia de UI externa
+
+## Autenticación
+
+La aplicación ahora inicia en `/login` cuando no existe una sesión válida.
+
+Flujo:
+
+```text
+/login
+  ↓
+POST /api/auth/login
+  ↓
+JWT + datos del usuario
+  ↓
+AuthSessionService
+  ↓
+AuthInterceptor
+  ↓
+Authorization: Bearer <token>
+  ↓
+AuthGuard
+  ↓
+Dashboard
+```
+
+Incluye:
+- pantalla de inicio de sesión
+- sesión JWT persistida en el navegador
+- validación de expiración del token
+- interceptor HTTP para JWT y TenantId
+- protección de rutas mediante AuthGuard
+- redirección al login cuando la sesión expira
+- cierre de sesión desde el menú lateral
+
+Usuario de desarrollo:
+- Usuario: `admin`
+- Contraseña: `Admin123!`
 
 ## Módulos incluidos
 Dashboard RR.HH., Administración y catálogos, Organización, Personal, Legajo digital, Contratos, Documentos, Asistencia, Vacaciones/Permisos, Workflow, Portal del empleado, Portal del jefe, Auditoría y Reportes.
