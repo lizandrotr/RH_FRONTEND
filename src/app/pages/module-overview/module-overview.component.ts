@@ -1,0 +1,4 @@
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+@Component({selector:'app-module-overview',standalone:true,template:`<section class="page"><div class="page-heading"><div><span class="eyebrow">Torresoft People V1</span><h1>{{icon}} {{title}}</h1><p>{{description}}</p></div></div><div class="panel"><h2>Estructura preparada</h2><p>Este módulo forma parte de la arquitectura funcional V1. Sus pantallas específicas se conectarán a los endpoints del dominio correspondiente en las siguientes iteraciones.</p></div></section>`})
+export class ModuleOverviewComponent{title='';icon='';description='';constructor(route:ActivatedRoute){this.title=route.snapshot.data['title']??'';this.icon=route.snapshot.data['icon']??'';this.description=route.snapshot.data['description']??'';}}
